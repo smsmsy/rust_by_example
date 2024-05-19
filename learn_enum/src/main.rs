@@ -31,6 +31,25 @@ fn main() {
         // Note again the lack of scoping.
         // こちらも同じ
         Civilian => println!("Civilians work!"),
-        Soldier  => println!("Soldiers fight!"),
+        Soldier => println!("Soldiers fight!"),
+    }
+
+    // `use`しているため、`Status::Poor`と書いていることに等しい
+    let status = Rich;
+    // `Work::Civilian`に等しい
+    let work = Soldier;
+
+    match status {
+        // Note the lack of scoping because of the explicit `use` above.
+        // `use`しているのでスコープを明示していない
+        Rich => println!("The rich have lots of money!"),
+        Poor => println!("The poor have no money..."),
+    }
+
+    match work {
+        // Note again the lack of scoping.
+        // こちらも同じ
+        Civilian => println!("Civilians work!"),
+        Soldier => println!("Soldiers fight!"),
     }
 }
